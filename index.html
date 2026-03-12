@@ -28,7 +28,15 @@
     <div class="hero-grid-bg" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="hero-intro" data-reveal>introducing</p>
-      <h1 class="hero-logo" data-reveal>diva<span class="hero-ai">ai</span><sup class="tm">&trade;</sup></h1>
+      <!-- WHY: Uses the actual brand logo from Canva when available,
+           falls back to styled text if image fails to load -->
+      <h1 class="hero-logo" data-reveal>
+        <img src="assets/diva-white-lockup.png"
+             alt="diva ai"
+             class="hero-logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+        <span class="hero-logo-fallback" style="display:none">diva<span class="hero-ai">ai</span><sup class="tm">&trade;</sup></span>
+      </h1>
       <p class="hero-tagline" data-reveal>She doesn't follow trends.<br><em>She sets them.</em></p>
       <p class="hero-sub" data-reveal>The AI-powered retail intelligence platform<br>about to make her grand entrance.</p>
       <a href="#signup" class="btn-primary" data-reveal>Get On the Guest List</a>

@@ -192,8 +192,8 @@ function launchConfetti() {
   canvas.height = window.innerHeight;
 
   const PIECE_COUNT = 120;
-  /* WHY: Palette matches the brand — gold, blue, white, muted gold */
-  const palette = ['#C9A84C', '#2D5BFF', '#FFFFFF', '#E8D89A', '#4F7AFF'];
+  /* WHY: Palette matches the Canva Brand Kit — all six brand colors */
+  const palette = ['#184edd', '#8000d7', '#f53198', '#fee759', '#dbeaff', '#efeaf4'];
   const pieces = [];
 
   for (let i = 0; i < PIECE_COUNT; i++) {

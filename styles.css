@@ -1,27 +1,35 @@
 /* ==========================================================================
-   DIVA AI — Teaser Site (Clean Redesign)
+   DIVA AI — Teaser Site
 
    Design philosophy: Premium SaaS launch aesthetic. Generous whitespace,
    restrained animation, strong typography. The copy does the personality
    work; the design does the credibility work.
 
-   Brand palette:
-     --blue:   #2D5BFF  (from presentation — primary)
-     --cream:  #F6F3EE  (warm neutral — softer than pure white)
-     --ink:    #111118  (near-black with cool undertone)
-     --gold:   #C9A84C  (muted gold — elegant, not garish)
+   Brand palette (from Canva Brand Kit):
+     --blue:       #184edd  (primary blue)
+     --purple:     #8000d7  (accent purple)
+     --pink:       #f53198  (accent hot pink)
+     --yellow:     #fee759  (highlight yellow)
+     --lavender:   #efeaf4  (light background)
+     --periwinkle: #dbeaff  (light accent)
    ========================================================================== */
 
 :root {
-  --blue: #2D5BFF;
-  --blue-dark: #1E42CC;
-  --blue-muted: rgba(45, 91, 255, 0.08);
-  --cream: #F6F3EE;
+  /* WHY: These six colors are pulled directly from the Canva Brand Kit */
+  --blue: #184edd;
+  --blue-dark: #1240b8;
+  --blue-muted: rgba(24, 78, 221, 0.08);
+  --purple: #8000d7;
+  --purple-muted: rgba(128, 0, 215, 0.08);
+  --pink: #f53198;
+  --pink-muted: rgba(245, 49, 152, 0.08);
+  --yellow: #fee759;
+  --yellow-dark: #e6d04e;
+  --lavender: #efeaf4;
+  --periwinkle: #dbeaff;
   --ink: #111118;
   --ink-soft: #3D3D4A;
   --ink-muted: #7A7A8A;
-  --gold: #C9A84C;
-  --gold-soft: rgba(201, 168, 76, 0.15);
   --white: #FFFFFF;
   --border: rgba(17, 17, 24, 0.08);
 
@@ -91,7 +99,10 @@ img, svg { display: block; }
 }
 
 .section-sub.light { color: rgba(255,255,255,0.55); }
-.section-sub em, .section-sub.light em { color: var(--gold); font-style: italic; }
+/* WHY: On light backgrounds yellow is unreadable, so emphasized text uses pink.
+   On dark (`.light`) backgrounds, yellow works well. */
+.section-sub em { color: var(--pink); font-style: italic; }
+.section-sub.light em { color: var(--yellow); font-style: italic; }
 
 /* ==========================================================================
    CURTAIN
@@ -141,7 +152,7 @@ img, svg { display: block; }
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-style: italic;
-  color: var(--gold);
+  color: var(--yellow);
   margin-top: 0.6rem;
   opacity: 0;
   animation: fadeUp 0.6s ease 0.7s forwards;
@@ -214,6 +225,16 @@ img, svg { display: block; }
   letter-spacing: -0.02em;
 }
 
+.hero-logo-img {
+  max-width: clamp(280px, 50vw, 480px);
+  height: auto;
+  display: inline-block;
+}
+
+.hero-logo-fallback {
+  /* Fallback text styling matches the original hero-logo */
+}
+
 .hero-ai {
   font-family: var(--font-body);
   font-weight: 300;
@@ -241,8 +262,10 @@ img, svg { display: block; }
   color: rgba(255,255,255,0.9);
 }
 
+/* WHY: Yellow on white hero background is legible; pink is an alternative if
+   the hero bg changes. Using yellow here for brand consistency. */
 .hero-tagline em {
-  color: var(--gold);
+  color: var(--yellow);
   font-style: italic;
 }
 
@@ -310,7 +333,7 @@ img, svg { display: block; }
 }
 
 .marquee-track span { flex-shrink: 0; padding: 0 1rem; }
-.marquee-track .sep { color: var(--gold); opacity: 0.5; padding: 0 0.5rem; }
+.marquee-track .sep { color: var(--yellow); opacity: 0.5; padding: 0 0.5rem; }
 
 /* ==========================================================================
    ORIGIN STORY
@@ -318,7 +341,7 @@ img, svg { display: block; }
 
 .origin {
   padding: 7rem 0;
-  background: var(--cream);
+  background: var(--lavender);
 }
 
 .origin-grid {
@@ -350,6 +373,17 @@ img, svg { display: block; }
   margin-bottom: 1.5rem;
 }
 
+/* WHY: Each origin card gets a different brand accent — blue, purple, pink */
+.origin-card:nth-child(2) .card-icon {
+  background: var(--purple-muted);
+  color: var(--purple);
+}
+
+.origin-card:nth-child(3) .card-icon {
+  background: var(--pink-muted);
+  color: var(--pink);
+}
+
 .card-label {
   display: block;
   font-size: 0.75rem;
@@ -374,7 +408,7 @@ img, svg { display: block; }
   color: var(--ink-soft);
 }
 
-.origin-card em { color: var(--blue); font-style: italic; font-weight: 500; }
+.origin-card em { color: var(--purple); font-style: italic; font-weight: 500; }
 .origin-card strong { color: var(--ink); }
 
 /* ==========================================================================
@@ -439,8 +473,8 @@ img, svg { display: block; }
   font-family: var(--font-display);
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--gold);
-  opacity: 0.8;
+  color: var(--pink);
+  opacity: 0.9;
 }
 
 /* ==========================================================================
@@ -460,8 +494,8 @@ img, svg { display: block; }
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 15% 50%, rgba(45,91,255,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 50%, rgba(201,168,76,0.04) 0%, transparent 50%);
+    radial-gradient(ellipse at 15% 50%, rgba(24,78,221,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 50%, rgba(128,0,215,0.04) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -499,7 +533,7 @@ img, svg { display: block; }
   font-family: var(--font-body);
   font-style: normal;
   font-size: 0.82rem;
-  color: var(--gold);
+  color: var(--yellow);
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -524,7 +558,7 @@ img, svg { display: block; }
 .quote-dot:hover { background: rgba(255,255,255,0.3); }
 
 .quote-dot.active {
-  background: var(--gold);
+  background: var(--yellow);
   transform: scale(1.35);
 }
 
@@ -607,7 +641,7 @@ img, svg { display: block; }
   line-height: 1.6;
 }
 
-.stats-coda strong { color: var(--blue); font-style: italic; }
+.stats-coda strong { color: var(--purple); font-style: italic; }
 
 /* ==========================================================================
    ROADMAP
@@ -624,7 +658,7 @@ img, svg { display: block; }
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-style: italic;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--yellow);
   margin-bottom: 4rem;
 }
 
@@ -647,7 +681,7 @@ img, svg { display: block; }
 .node-dot {
   width: 12px; height: 12px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--yellow);
   margin: 0 auto 1.5rem;
   position: relative;
 }
@@ -657,7 +691,7 @@ img, svg { display: block; }
   content: '';
   position: absolute; inset: -4px;
   border-radius: 50%;
-  border: 1px solid rgba(201,168,76,0.3);
+  border: 1px solid rgba(254,231,89,0.3);
 }
 
 .node-phase {
@@ -666,7 +700,7 @@ img, svg { display: block; }
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--yellow);
   margin-bottom: 0.5rem;
 }
 
@@ -692,7 +726,7 @@ img, svg { display: block; }
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), rgba(201,168,76,0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(254,231,89,0.3), rgba(254,231,89,0.3), transparent);
   }
 }
 
@@ -702,7 +736,7 @@ img, svg { display: block; }
 
 .signup {
   padding: 7rem 0;
-  background: var(--cream);
+  background: var(--lavender);
 }
 
 .signup-inner {
