@@ -33,9 +33,10 @@
   --white: #FFFFFF;
   --border: rgba(17, 17, 24, 0.08);
 
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-script: 'Dancing Script', cursive;
+  /* WHY: Pacifico is the official brand title font (matches diva logo script).
+     Open Sans is the official brand body font. Both from Canva Brand Kit. */
+  --font-title: 'Pacifico', cursive;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.45, 0, 0.15, 1);
@@ -77,7 +78,7 @@ img, svg { display: block; }
 .section-kicker.light { color: rgba(255,255,255,0.5); }
 
 .section-heading {
-  font-family: var(--font-display);
+  font-family: var(--font-title);
   font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 700;
   line-height: 1.15;
@@ -149,7 +150,7 @@ img, svg { display: block; }
 }
 
 .curtain-headline {
-  font-family: var(--font-display);
+  font-family: var(--font-title);
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-style: italic;
   color: var(--yellow);
@@ -209,7 +210,7 @@ img, svg { display: block; }
 }
 
 .hero-intro {
-  font-family: var(--font-script);
+  font-family: var(--font-title);
   font-size: 1.6rem;
   font-weight: 600;
   color: rgba(255,255,255,0.7);
@@ -217,7 +218,7 @@ img, svg { display: block; }
 }
 
 .hero-logo {
-  font-family: var(--font-script);
+  font-family: var(--font-title);
   font-size: clamp(5.5rem, 16vw, 11rem);
   font-weight: 700;
   line-height: 1;
@@ -254,7 +255,7 @@ img, svg { display: block; }
 }
 
 .hero-tagline {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.25rem, 2.8vw, 1.9rem);
   font-weight: 400;
   line-height: 1.45;
@@ -323,7 +324,7 @@ img, svg { display: block; }
 .marquee-track {
   display: inline-flex;
   align-items: center;
-  animation: slide 20s linear infinite;
+  animation: slide 40s linear infinite;
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 500;
@@ -333,7 +334,8 @@ img, svg { display: block; }
 }
 
 .marquee-track span { flex-shrink: 0; padding: 0 1rem; }
-.marquee-track .sep { color: var(--yellow); opacity: 0.5; padding: 0 0.5rem; }
+.marquee-track .sep { color: var(--pink); opacity: 0.5; padding: 0 0.5rem; }
+.marquee-track .marquee-sass { color: var(--yellow); font-style: italic; }
 
 /* ==========================================================================
    ORIGIN STORY
@@ -395,7 +397,7 @@ img, svg { display: block; }
 }
 
 .origin-card h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
@@ -410,6 +412,17 @@ img, svg { display: block; }
 
 .origin-card em { color: var(--purple); font-style: italic; font-weight: 500; }
 .origin-card strong { color: var(--ink); }
+
+.card-flair {
+  display: block;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--pink);
+}
 
 /* ==========================================================================
    CAPABILITIES
@@ -442,16 +455,16 @@ img, svg { display: block; }
 }
 
 .cap-num {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 2.5rem;
-  font-weight: 900;
+  font-weight: 700;
   color: rgba(255,255,255,0.1);
   line-height: 1;
   margin-bottom: 1rem;
 }
 
 .cap-card h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--white);
@@ -470,7 +483,7 @@ img, svg { display: block; }
   margin-top: 1.25rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(255,255,255,0.08);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: 0.85rem;
   color: var(--pink);
@@ -520,7 +533,7 @@ img, svg { display: block; }
 }
 
 .quote-slide p {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.5rem, 3.5vw, 2.4rem);
   font-style: italic;
   font-weight: 400;
@@ -597,22 +610,22 @@ img, svg { display: block; }
 }
 
 .stat-pre {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   color: var(--blue);
 }
 
 .stat-num {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(3rem, 7vw, 4.5rem);
-  font-weight: 900;
+  font-weight: 700;
   color: var(--blue);
   line-height: 1;
 }
 
 .stat-suffix {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.2rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--blue);
@@ -634,7 +647,7 @@ img, svg { display: block; }
 
 .stats-coda {
   text-align: center;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: italic;
   color: var(--ink-soft);
@@ -654,7 +667,7 @@ img, svg { display: block; }
 
 .roadmap-answer {
   text-align: center;
-  font-family: var(--font-display);
+  font-family: var(--font-title);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-style: italic;
   font-weight: 700;
@@ -705,7 +718,7 @@ img, svg { display: block; }
 }
 
 .roadmap-node h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--white);
@@ -803,7 +816,7 @@ img, svg { display: block; }
 .signup-success { margin-top: 1rem; animation: fadeUp 0.5s ease; }
 
 .success-headline {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.4rem;
   font-style: italic;
   font-weight: 700;
@@ -827,7 +840,7 @@ img, svg { display: block; }
 }
 
 .footer-brand {
-  font-family: var(--font-script);
+  font-family: var(--font-title);
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--white);
