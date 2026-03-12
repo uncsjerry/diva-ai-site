@@ -413,6 +413,8 @@ img, svg { display: block; }
 .origin-card em { color: var(--purple); font-style: italic; font-weight: 500; }
 .origin-card strong { color: var(--ink); }
 
+/* WHY: Origin cards sit on lavender bg — bright yellow is hard to read there,
+   so we use the darkened yellow for sufficient contrast */
 .card-flair {
   display: block;
   margin-top: 1.25rem;
@@ -421,7 +423,7 @@ img, svg { display: block; }
   font-family: var(--font-body);
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--pink);
+  color: var(--yellow-dark);
 }
 
 /* ==========================================================================
@@ -486,7 +488,7 @@ img, svg { display: block; }
   font-family: var(--font-body);
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--pink);
+  color: var(--yellow);
   opacity: 0.9;
 }
 
@@ -537,7 +539,7 @@ img, svg { display: block; }
   font-size: clamp(1.5rem, 3.5vw, 2.4rem);
   font-style: italic;
   font-weight: 400;
-  color: var(--white);
+  color: var(--yellow);
   line-height: 1.35;
   margin-bottom: 1.5rem;
 }
