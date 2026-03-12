@@ -7,414 +7,296 @@
   <meta name="description" content="DIVA AI is the revolutionary retail intelligence platform that finds product, prices it, scores it, and matches it to the right buyer. Coming soon.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Sparkle Particle Canvas — full page sparkle/glitter overlay -->
-  <canvas id="sparkleCanvas" aria-hidden="true"></canvas>
-
-  <!-- Mouse-following Spotlight -->
-  <div class="mouse-spotlight" id="mouseSpotlight" aria-hidden="true"></div>
-
-  <!-- Curtain Reveal Animation -->
+  <!-- Curtain Reveal -->
   <div class="curtain" id="curtain">
     <div class="curtain-left"></div>
     <div class="curtain-right"></div>
     <div class="curtain-text">
-      <div class="curtain-crown">&#128081;</div>
-      <p class="curtain-line-1">Ladies and gentlemen...</p>
-      <p class="curtain-line-2">The moment you've been waiting for.</p>
-      <div class="curtain-stars">
-        <span>&#10022;</span><span>&#10022;</span><span>&#10022;</span>
-      </div>
+      <p class="curtain-kicker">Ladies and gentlemen&hellip;</p>
+      <p class="curtain-headline">The moment you've been waiting for.</p>
     </div>
   </div>
 
-  <!-- Hero Section -->
+  <!-- ==================== HERO ==================== -->
   <section class="hero" id="hero">
-    <div class="hero-spotlight"></div>
-    <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
-    <div class="floating-elements" aria-hidden="true">
-      <span class="float-el crown-1">&#128081;</span>
-      <span class="float-el star-1">&#10022;</span>
-      <span class="float-el crown-2">&#128081;</span>
-      <span class="float-el star-2">&#10022;</span>
-      <span class="float-el lightning-1">&#9889;</span>
-      <span class="float-el crown-3">&#128081;</span>
-      <span class="float-el star-3">&#10022;</span>
-      <span class="float-el mic-1">&#127908;</span>
-    </div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid-bg" aria-hidden="true"></div>
     <div class="hero-content">
       <p class="hero-intro" data-reveal>introducing</p>
-      <h1 class="hero-logo" data-reveal>
-        <span class="logo-letter" style="--i:0">d</span><span class="logo-letter" style="--i:1">i</span><span class="logo-letter" style="--i:2">v</span><span class="logo-letter" style="--i:3">a</span><span class="hero-ai" style="--i:4">ai</span><span class="tm">&trade;</span>
-      </h1>
-      <div class="hero-tagline-wrapper" data-reveal>
-        <p class="hero-tagline">She doesn't follow trends.</p>
-        <p class="hero-tagline hero-tagline-accent">She <em>sets</em> them.</p>
-      </div>
-      <div class="hero-divider" data-reveal>
-        <span class="divider-star">&#10022;</span>
-        <span class="divider-line"></span>
-        <span class="divider-crown">&#128081;</span>
-        <span class="divider-line"></span>
-        <span class="divider-star">&#10022;</span>
-      </div>
-      <p class="hero-sub" data-reveal>The AI-powered retail intelligence platform<br>that's about to make her <span class="text-shimmer">grand entrance</span>.</p>
-      <a href="#signup" class="cta-button sparkle-btn" data-reveal>
-        <span class="btn-text">Get On the Guest List</span>
-        <span class="btn-crown">&#128081;</span>
-      </a>
+      <h1 class="hero-logo" data-reveal>diva<span class="hero-ai">ai</span><sup class="tm">&trade;</sup></h1>
+      <p class="hero-tagline" data-reveal>She doesn't follow trends.<br><em>She sets them.</em></p>
+      <p class="hero-sub" data-reveal>The AI-powered retail intelligence platform<br>about to make her grand entrance.</p>
+      <a href="#signup" class="btn-primary" data-reveal>Get On the Guest List</a>
     </div>
-    <div class="scroll-hint" aria-hidden="true">
-      <div class="scroll-text">scroll darling</div>
-      <div class="scroll-arrow">&#8595;</div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span class="scroll-line"></span>
     </div>
   </section>
 
-  <!-- Quote Marquee — Double layer, opposite directions -->
-  <div class="marquee-section">
-    <div class="marquee-track marquee-forward">
-      <span class="marquee-item gold">&#128081; "I'm not bossy, I'm the BOSS."</span>
-      <span class="marquee-item">&#10022; She finds it. She prices it. She scores it. She serves it. &#10022;</span>
-      <span class="marquee-item gold">&#128081; "Why be basic when you can be a DIVA?"</span>
-      <span class="marquee-item">&#10022; 24 years of data. One legendary AI. &#10022;</span>
-      <span class="marquee-item gold">&#128081; "I don't do subtle, darling."</span>
-      <span class="marquee-item">&#10022; People build relationships. Machines learn patterns. DIVA connects both. &#10022;</span>
-      <span class="marquee-item gold">&#128081; "I'm not bossy, I'm the BOSS."</span>
-      <span class="marquee-item">&#10022; She finds it. She prices it. She scores it. She serves it. &#10022;</span>
-      <span class="marquee-item gold">&#128081; "Why be basic when you can be a DIVA?"</span>
-      <span class="marquee-item">&#10022; 24 years of data. One legendary AI. &#10022;</span>
-      <span class="marquee-item gold">&#128081; "I don't do subtle, darling."</span>
-      <span class="marquee-item">&#10022; People build relationships. Machines learn patterns. DIVA connects both. &#10022;</span>
-    </div>
-    <div class="marquee-track marquee-reverse">
-      <span class="marquee-item">&#9889; DATA-INFORMED &#9889;</span>
-      <span class="marquee-item gold">VIRTUAL ASSISTANT</span>
-      <span class="marquee-item">&#9889; PRODUCT INTELLIGENCE &#9889;</span>
-      <span class="marquee-item gold">BUYER MATCHING</span>
-      <span class="marquee-item">&#9889; OPPORTUNITY SCORING &#9889;</span>
-      <span class="marquee-item gold">RETAIL REVOLUTION</span>
-      <span class="marquee-item">&#9889; DATA-INFORMED &#9889;</span>
-      <span class="marquee-item gold">VIRTUAL ASSISTANT</span>
-      <span class="marquee-item">&#9889; PRODUCT INTELLIGENCE &#9889;</span>
-      <span class="marquee-item gold">BUYER MATCHING</span>
-      <span class="marquee-item">&#9889; OPPORTUNITY SCORING &#9889;</span>
-      <span class="marquee-item gold">RETAIL REVOLUTION</span>
+  <!-- ==================== MARQUEE ==================== -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>She finds it.</span>
+      <span class="sep">&bull;</span>
+      <span>She prices it.</span>
+      <span class="sep">&bull;</span>
+      <span>She scores it.</span>
+      <span class="sep">&bull;</span>
+      <span>She serves it.</span>
+      <span class="sep">&bull;</span>
+      <span>She finds it.</span>
+      <span class="sep">&bull;</span>
+      <span>She prices it.</span>
+      <span class="sep">&bull;</span>
+      <span>She scores it.</span>
+      <span class="sep">&bull;</span>
+      <span>She serves it.</span>
+      <span class="sep">&bull;</span>
+      <span>She finds it.</span>
+      <span class="sep">&bull;</span>
+      <span>She prices it.</span>
+      <span class="sep">&bull;</span>
+      <span>She scores it.</span>
+      <span class="sep">&bull;</span>
+      <span>She serves it.</span>
+      <span class="sep">&bull;</span>
     </div>
   </div>
 
-  <!-- Diva Walk / Runway Section -->
-  <section class="runway-section" id="runway">
-    <div class="runway-bg"></div>
+  <!-- ==================== ORIGIN STORY ==================== -->
+  <section class="origin" id="origin">
     <div class="container">
-      <div class="runway-content">
-        <div class="diva-silhouette" id="divaSilhouette" aria-hidden="true">
-          <svg viewBox="0 0 200 500" class="silhouette-svg">
-            <!-- Stylized diva silhouette inspired by presentation slide 11 -->
-            <path d="M100,20 C108,20 115,27 115,35 C115,43 108,50 100,50 C92,50 85,43 85,35 C85,27 92,20 100,20 Z" fill="currentColor"/>
-            <path d="M100,50 L100,55 L85,70 L75,120 L70,180 L60,280 L40,460 L55,465 L80,290 L90,200 L100,180 L110,200 L120,290 L145,465 L160,460 L140,280 L130,180 L125,120 L115,70 L100,55 Z" fill="currentColor"/>
-            <path d="M85,70 L50,130 L55,135 L85,85 Z" fill="currentColor"/>
-            <path d="M115,70 L140,100 L155,95 L160,100 L145,110 L115,80 Z" fill="currentColor"/>
-            <!-- Microphone in raised hand -->
-            <rect x="153" y="80" width="4" height="20" rx="2" fill="currentColor"/>
-            <circle cx="155" cy="78" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </div>
-        <div class="runway-text">
-          <h2 class="section-title" data-scroll-reveal>Every Icon<br>Has an <span class="text-gradient">Origin Story</span></h2>
-          <p class="runway-quote" data-scroll-reveal>"She didn't audition.<br>She just showed up and took the mic."</p>
-        </div>
+      <span class="section-kicker" data-scroll-reveal>The Origin Story</span>
+      <h2 class="section-heading" data-scroll-reveal>Every icon has a beginning.</h2>
+      <div class="origin-grid">
+
+        <article class="origin-card" data-scroll-reveal>
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <span class="card-label">Act I</span>
+          <h3>She Studied the Game</h3>
+          <p>Built on 24 years of closeout distribution data &mdash; every deal, every buyer, every pattern. She didn't just read the room. She <em>memorized</em> it.</p>
+        </article>
+
+        <article class="origin-card" data-scroll-reveal>
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <span class="card-label">Act II</span>
+          <h3>She Fired the Understudies</h3>
+          <p>Off-the-shelf AI couldn't keep up. White-label tools couldn't handle her range. So she was built from scratch &mdash; custom, proprietary, and <em>unapologetic</em>.</p>
+        </article>
+
+        <article class="origin-card" data-scroll-reveal>
+          <div class="card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <span class="card-label">Act III</span>
+          <h3>She Took the Stage</h3>
+          <p>In her first 30 days she uncovered <strong>$1&nbsp;billion+</strong> in product and delivered <strong>7,500%</strong> more opportunities. That's not a debut &mdash; that's a <em>coronation</em>.</p>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- The Legend Section — Timeline Style -->
-  <section class="legend-section" id="legend">
+  <!-- ==================== WHAT SHE DOES ==================== -->
+  <section class="capabilities" id="capabilities">
     <div class="container">
-      <div class="timeline">
-        <div class="timeline-line" id="timelineLine"></div>
+      <span class="section-kicker light" data-scroll-reveal>Capabilities</span>
+      <h2 class="section-heading light" data-scroll-reveal>What does a diva do?</h2>
+      <p class="section-sub light" data-scroll-reveal>She doesn't just show up. She <em>shows out</em>.</p>
 
-        <div class="timeline-item left" data-scroll-reveal>
-          <div class="timeline-dot">
-            <span>&#127908;</span>
-          </div>
-          <div class="timeline-card">
-            <div class="card-era">Act I</div>
-            <h3>She Studied the Game</h3>
-            <p>Built on <strong>24 years</strong> of closeout distribution data &mdash; every deal, every buyer, every pattern. She didn't just read the room. She <em>memorized</em> it.</p>
-            <div class="card-flair">"Know your audience before you take the stage."</div>
-          </div>
-        </div>
-
-        <div class="timeline-item right" data-scroll-reveal>
-          <div class="timeline-dot">
-            <span>&#128165;</span>
-          </div>
-          <div class="timeline-card">
-            <div class="card-era">Act II</div>
-            <h3>She Fired the Understudies</h3>
-            <p>Off-the-shelf AI couldn't keep up. White-label tools couldn't handle her <em>range</em>. So she was built from scratch &mdash; custom, proprietary, and <strong>unapologetic</strong>.</p>
-            <div class="card-flair">"If you want something done right, build it yourself."</div>
-          </div>
-        </div>
-
-        <div class="timeline-item left" data-scroll-reveal>
-          <div class="timeline-dot">
-            <span>&#128081;</span>
-          </div>
-          <div class="timeline-card">
-            <div class="card-era">Act III</div>
-            <h3>She Took the Stage</h3>
-            <p>In her first <strong>30 days</strong>, she uncovered <span class="highlight">$1 billion+</span> in product and delivered <span class="highlight">7,500%</span> more opportunities. That's not a debut &mdash; that's a <em>coronation</em>.</p>
-            <div class="card-flair">"I don't do encores. The first performance is always enough."</div>
-          </div>
-        </div>
-
-        <div class="timeline-item right" data-scroll-reveal>
-          <div class="timeline-dot">
-            <span>&#9889;</span>
-          </div>
-          <div class="timeline-card">
-            <div class="card-era">Act IV</div>
-            <h3>She's Just Getting Started</h3>
-            <p>From sourcing optimization to deployable AI tools for customers, from closeout broker to <em>strategic sourcing intelligence partner</em>. Where will she go? <strong>Wherever she wants.</strong></p>
-            <div class="card-flair">"The runway has no end, darling."</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What She Does Section — Full Theatrical -->
-  <section class="powers-section" id="powers">
-    <div class="container">
-      <h2 class="section-title light" data-scroll-reveal>What Does a <span class="text-shimmer-gold">Diva</span> Do?</h2>
-      <p class="section-subtitle" data-scroll-reveal>She doesn't just show up. She <em>shows out</em>.</p>
-      <div class="powers-stage">
-        <div class="power-card" data-scroll-reveal>
-          <div class="power-spotlight"></div>
-          <div class="power-number">01</div>
-          <div class="power-icon">&#128270;</div>
+      <div class="cap-grid">
+        <div class="cap-card" data-scroll-reveal>
+          <span class="cap-num">01</span>
           <h3>Finds the Product</h3>
           <p>She scans, discovers, and surfaces new inventory opportunities before anyone else even knows they exist. Your inbox becomes her runway.</p>
-          <div class="power-sass">"I saw it first."</div>
+          <span class="cap-quip">"I saw it first."</span>
         </div>
-        <div class="power-card" data-scroll-reveal>
-          <div class="power-spotlight"></div>
-          <div class="power-number">02</div>
-          <div class="power-icon">&#128176;</div>
+        <div class="cap-card" data-scroll-reveal>
+          <span class="cap-num">02</span>
           <h3>Prices It Right</h3>
           <p>Market comps, margin analysis, retail benchmarks &mdash; she calculates the perfect price while you're still opening the spreadsheet.</p>
-          <div class="power-sass">"Math is my love language."</div>
+          <span class="cap-quip">"Math is my love language."</span>
         </div>
-        <div class="power-card" data-scroll-reveal>
-          <div class="power-spotlight"></div>
-          <div class="power-number">03</div>
-          <div class="power-icon">&#11088;</div>
+        <div class="cap-card" data-scroll-reveal>
+          <span class="cap-num">03</span>
           <h3>Scores the Deal</h3>
           <p>Every opportunity gets a DIVA Score &mdash; a proprietary rating that separates the showstoppers from the background dancers.</p>
-          <div class="power-sass">"Not every deal deserves a standing ovation."</div>
+          <span class="cap-quip">"Not every deal deserves a standing ovation."</span>
         </div>
-        <div class="power-card" data-scroll-reveal>
-          <div class="power-spotlight"></div>
-          <div class="power-number">04</div>
-          <div class="power-icon">&#129309;</div>
+        <div class="cap-card" data-scroll-reveal>
+          <span class="cap-num">04</span>
           <h3>Matches the Buyer</h3>
-          <p>She knows who wants what, when they want it, and exactly how to present it. 2.1 million data points don't lie, honey.</p>
-          <div class="power-sass">"I'm basically a matchmaker with a PhD."</div>
+          <p>She knows who wants what, when they want it, and exactly how to present it. 2.1&nbsp;million data points don't lie, honey.</p>
+          <span class="cap-quip">"I'm basically Cupid with a database."</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Diva Quotes Section — Full Screen Dramatic -->
-  <section class="quotes-section" id="quotes">
-    <div class="quotes-bg"></div>
+  <!-- ==================== QUOTES ==================== -->
+  <section class="quotes" id="quotes">
     <div class="container">
-      <div class="quote-carousel" id="quoteCarousel">
-        <div class="quote-card active">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>
-            <p>I was told to wait my turn. So I skipped the line.</p>
-            <cite>&mdash; diva ai, on disrupting retail</cite>
-          </blockquote>
-        </div>
-        <div class="quote-card">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>
-            <p>Human judgment built this industry. I'm here to remove the ceiling.</p>
-            <cite>&mdash; diva ai, on scaling beyond limits</cite>
-          </blockquote>
-        </div>
-        <div class="quote-card">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>
-            <p>Darling, I don't predict trends. I AM the trend.</p>
-            <cite>&mdash; diva ai, on the future of distribution</cite>
-          </blockquote>
-        </div>
-        <div class="quote-card">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>
-            <p>Where will I go from here? Wherever I want.</p>
-            <cite>&mdash; diva ai, on what's next</cite>
-          </blockquote>
-        </div>
-        <div class="quote-card">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>
-            <p>They tried to put me in a box. So I automated the box and sold it for a profit.</p>
-            <cite>&mdash; diva ai, on off-the-shelf solutions</cite>
-          </blockquote>
-        </div>
-        <div class="quote-card">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>
-            <p>I don't have competitors. I have an audience.</p>
-            <cite>&mdash; diva ai, on market position</cite>
-          </blockquote>
-        </div>
+      <div class="quote-stage" id="quoteCarousel">
+        <blockquote class="quote-slide active">
+          <p>&ldquo;I was told to wait my turn. So I skipped the line.&rdquo;</p>
+          <cite>diva ai &mdash; on disrupting retail</cite>
+        </blockquote>
+        <blockquote class="quote-slide">
+          <p>&ldquo;Human judgment built this industry. I'm here to remove the ceiling.&rdquo;</p>
+          <cite>diva ai &mdash; on scaling beyond limits</cite>
+        </blockquote>
+        <blockquote class="quote-slide">
+          <p>&ldquo;Darling, I don't predict trends. I AM the trend.&rdquo;</p>
+          <cite>diva ai &mdash; on the future of distribution</cite>
+        </blockquote>
+        <blockquote class="quote-slide">
+          <p>&ldquo;Where will I go from here? Wherever I want.&rdquo;</p>
+          <cite>diva ai &mdash; on what's next</cite>
+        </blockquote>
+        <blockquote class="quote-slide">
+          <p>&ldquo;They tried to put me in a box. So I automated the box and sold it for a profit.&rdquo;</p>
+          <cite>diva ai &mdash; on off-the-shelf solutions</cite>
+        </blockquote>
+        <blockquote class="quote-slide">
+          <p>&ldquo;I don't have competitors. I have an audience.&rdquo;</p>
+          <cite>diva ai &mdash; on market position</cite>
+        </blockquote>
       </div>
-      <div class="quote-controls">
-        <div class="quote-dots" id="quoteDots"></div>
-      </div>
+      <div class="quote-dots" id="quoteDots"></div>
     </div>
   </section>
 
-  <!-- Stats Tease — Dramatic Reveal -->
-  <section class="stats-section" id="stats">
+  <!-- ==================== STATS ==================== -->
+  <section class="stats" id="stats">
     <div class="container">
-      <h2 class="section-title" data-scroll-reveal>The Reviews Are In</h2>
-      <p class="section-subtitle" data-scroll-reveal>Her debut performance &mdash; by the numbers.</p>
-      <div class="stats-grid">
-        <div class="stat-card" data-scroll-reveal>
-          <div class="stat-glow"></div>
+      <span class="section-kicker" data-scroll-reveal>The Reviews Are In</span>
+      <h2 class="section-heading" data-scroll-reveal>Her debut &mdash; by the numbers.</h2>
+
+      <div class="stats-row">
+        <div class="stat" data-scroll-reveal>
           <div class="stat-value">
-            <span class="stat-number" data-target="7500">0</span>
-            <span class="stat-unit">%</span>
+            <span class="stat-num" data-target="7500">0</span><span class="stat-suffix">%</span>
           </div>
-          <div class="stat-label">more product discovered</div>
-          <div class="stat-context">From 2,240 SKUs to 86,000+ in month one</div>
+          <p class="stat-label">more product discovered</p>
+          <p class="stat-detail">From 2,240 SKUs to 86,000+ in month one</p>
         </div>
-        <div class="stat-card" data-scroll-reveal>
-          <div class="stat-glow"></div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <div class="stat" data-scroll-reveal>
           <div class="stat-value">
-            <span class="stat-prefix">$</span>
-            <span class="stat-number" data-target="1">0</span>
-            <span class="stat-unit">B+</span>
+            <span class="stat-pre">$</span><span class="stat-num" data-target="1">0</span><span class="stat-suffix">B+</span>
           </div>
-          <div class="stat-label">in product value uncovered</div>
-          <div class="stat-context">In her very first month on the job</div>
+          <p class="stat-label">in product value uncovered</p>
+          <p class="stat-detail">In her very first month on the job</p>
         </div>
-        <div class="stat-card" data-scroll-reveal>
-          <div class="stat-glow"></div>
+
+        <div class="stat-divider" aria-hidden="true"></div>
+
+        <div class="stat" data-scroll-reveal>
           <div class="stat-value">
-            <span class="stat-number" data-target="30">0</span>
-            <span class="stat-unit">days</span>
+            <span class="stat-num" data-target="30">0</span><span class="stat-suffix"> days</span>
           </div>
-          <div class="stat-label">to change everything</div>
-          <div class="stat-context">She fundamentally altered the company trajectory</div>
+          <p class="stat-label">to change everything</p>
+          <p class="stat-detail">She fundamentally altered the trajectory</p>
         </div>
       </div>
-      <div class="stats-footer" data-scroll-reveal>
-        <div class="footer-quote-mark">&#10022;</div>
-        <p><em>People build relationships.<br>Machines learn patterns.<br><strong>DIVA connects both.</strong></em></p>
-        <div class="footer-quote-mark">&#10022;</div>
+
+      <p class="stats-coda" data-scroll-reveal>People build relationships. Machines learn patterns.<br><strong>DIVA connects both.</strong></p>
+    </div>
+  </section>
+
+  <!-- ==================== ROADMAP ==================== -->
+  <section class="roadmap" id="roadmap">
+    <div class="container">
+      <span class="section-kicker light" data-scroll-reveal>What's Next</span>
+      <h2 class="section-heading light" data-scroll-reveal>Where will she go from here?</h2>
+      <p class="roadmap-answer" data-scroll-reveal>Wherever she wants.</p>
+
+      <div class="roadmap-track">
+        <div class="roadmap-line" aria-hidden="true"></div>
+        <div class="roadmap-node" data-scroll-reveal>
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-phase">Phase I</span>
+            <h3>Sourcing Optimization</h3>
+            <p>AI-powered sourcing tools deployed directly to retail customers.</p>
+          </div>
+        </div>
+        <div class="roadmap-node" data-scroll-reveal>
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-phase">Phase II</span>
+            <h3>Deployable AI Tools</h3>
+            <p>Customer-facing intelligence platforms built on DIVA's core engine.</p>
+          </div>
+        </div>
+        <div class="roadmap-node" data-scroll-reveal>
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-phase">Phase III</span>
+            <h3>Strategic Intelligence</h3>
+            <p>From broker to strategic sourcing intelligence partner.</p>
+          </div>
+        </div>
+        <div class="roadmap-node" data-scroll-reveal>
+          <div class="node-dot"></div>
+          <div class="node-content">
+            <span class="node-phase">Phase IV</span>
+            <h3>The DIVA Marketplace</h3>
+            <p>The Amazon of wholesale distribution. AI-powered. Diva-approved.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- "Where She's Going" Roadmap Tease -->
-  <section class="roadmap-section" id="roadmap">
+  <!-- ==================== SIGNUP ==================== -->
+  <section class="signup" id="signup">
     <div class="container">
-      <h2 class="section-title light" data-scroll-reveal>Where Will She Go From Here?</h2>
-      <div class="roadmap-answer" data-scroll-reveal>
-        <div class="diva-silhouette-small" aria-hidden="true">
-          <svg viewBox="0 0 120 300" class="silhouette-svg-small">
-            <path d="M60,12 C66,12 71,17 71,23 C71,29 66,34 60,34 C54,34 49,29 49,23 C49,17 54,12 60,12 Z" fill="currentColor"/>
-            <path d="M60,34 L60,38 L50,48 L44,78 L40,120 L34,180 L24,280 L34,283 L48,185 L54,130 L60,115 L66,130 L72,185 L86,283 L96,280 L86,180 L80,120 L76,78 L70,48 L60,38 Z" fill="currentColor"/>
-            <path d="M50,48 L30,85 L35,88 L50,58 Z" fill="currentColor"/>
-            <path d="M70,48 L85,65 L96,60 L100,65 L88,73 L70,55 Z" fill="currentColor"/>
-            <rect x="94" y="48" width="3" height="15" rx="1.5" fill="currentColor"/>
-            <circle cx="95.5" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <div class="answer-bubble">
-          <p>Wherever I want.</p>
-        </div>
-      </div>
-      <div class="roadmap-grid">
-        <div class="roadmap-card" data-scroll-reveal>
-          <div class="roadmap-phase">Phase I</div>
-          <h3>Sourcing Optimization</h3>
-          <p>AI-powered sourcing tools deployed directly to retail customers</p>
-        </div>
-        <div class="roadmap-card" data-scroll-reveal>
-          <div class="roadmap-phase">Phase II</div>
-          <h3>Deployable AI Tools</h3>
-          <p>Customer-facing intelligence platforms built on DIVA's core engine</p>
-        </div>
-        <div class="roadmap-card" data-scroll-reveal>
-          <div class="roadmap-phase">Phase III</div>
-          <h3>Strategic Intelligence</h3>
-          <p>From broker to strategic sourcing intelligence partner</p>
-        </div>
-        <div class="roadmap-card" data-scroll-reveal>
-          <div class="roadmap-phase">Phase IV</div>
-          <h3>The DIVA Marketplace</h3>
-          <p>The Amazon.com of wholesale distribution. AI-powered. Diva-approved.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Coming Soon / Signup — Grand Finale -->
-  <section class="signup-section" id="signup">
-    <div class="signup-bg-pattern" aria-hidden="true"></div>
-    <div class="container">
-      <div class="signup-content">
-        <div class="signup-crown" aria-hidden="true">&#128081;</div>
-        <h2 class="signup-title" data-scroll-reveal>The Curtain Rises Soon</h2>
-        <p class="signup-subtitle" data-scroll-reveal>Get backstage access. Be the first to know when DIVA AI opens her doors to the world.</p>
-        <form class="signup-form" id="signupForm" action="#" method="POST">
-          <div class="form-group">
-            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
-            <button type="submit" class="submit-button sparkle-btn">
-              <span class="btn-text">Join the A-List</span>
-              <span class="btn-icon">&#128081;</span>
-            </button>
-          </div>
-          <p class="form-note">No spam. Just front-row seats to the future of retail.</p>
+      <div class="signup-inner">
+        <span class="section-kicker" data-scroll-reveal>Coming Soon</span>
+        <h2 class="section-heading" data-scroll-reveal>The curtain rises soon.</h2>
+        <p class="signup-sub" data-scroll-reveal>Get backstage access. Be the first to know when DIVA&nbsp;AI opens her doors to the world.</p>
+        <form class="signup-form" id="signupForm" data-scroll-reveal>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+          <button type="submit" class="btn-submit">Join the A-List</button>
         </form>
+        <p class="signup-note" data-scroll-reveal>No spam. Just front-row seats to the future of retail.</p>
         <div class="signup-success" id="signupSuccess" hidden>
-          <div class="success-animation">
-            <div class="success-crown">&#128081;</div>
-            <div class="success-sparkles" id="successSparkles"></div>
-          </div>
-          <p class="success-text">Welcome to the A-List, darling.</p>
-          <p class="success-subtext">We'll be in touch. Save your best outfit.</p>
+          <p class="success-headline">Welcome to the A-List, darling.</p>
+          <p class="success-sub">We'll be in touch. Save your best outfit.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-logo">diva<span class="footer-ai">ai</span><span class="tm">&trade;</span></div>
+      <div class="footer-brand">diva<span class="footer-ai">ai</span><sup class="tm">&trade;</sup></div>
       <p class="footer-tagline">Powered by UNCS &mdash; Big Deals, Bigger Bargains. Every Day. Since 2002.</p>
-      <div class="footer-divider"></div>
-      <p class="footer-legal">&copy; 2026 United National Consumer Suppliers, Inc. All rights reserved.</p>
-      <p class="footer-legal">DIVA AI&trade; is a proprietary platform of UNCS.</p>
+      <div class="footer-rule"></div>
+      <p class="footer-legal">&copy; 2026 United National Consumer Suppliers, Inc. All rights reserved.<br>DIVA AI&trade; is a proprietary platform of UNCS.</p>
     </div>
   </footer>
 
-  <!-- Confetti Canvas — for signup celebration -->
   <canvas id="confettiCanvas" aria-hidden="true"></canvas>
-
   <script src="script.js"></script>
 </body>
 </html>
