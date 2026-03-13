@@ -4,7 +4,6 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCurtain();
   initHeroReveal();
   initScrollReveals();
   initQuoteCarousel();
@@ -13,31 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   Curtain
-   WHY: Quick, elegant curtain open — just enough to feel theatrical
-   without making the user wait
-   -------------------------------------------------------------------------- */
-
-function initCurtain() {
-  const curtain = document.getElementById('curtain');
-  if (!curtain) return;
-
-  /* 3.6s lets both text lines linger for dramatic effect, then curtain pulls open */
-  setTimeout(() => curtain.classList.add('open'), 3600);
-  /* Remove from DOM after the slow 2.4s curtain transition completes */
-  setTimeout(() => curtain.classList.add('done'), 6400);
-}
-
-/* --------------------------------------------------------------------------
    Hero Staggered Reveal
-   WHY: Elements fade in top-to-bottom after the curtain clears,
+   WHY: Elements fade in top-to-bottom on page load,
    drawing the eye naturally through the hierarchy
    -------------------------------------------------------------------------- */
 
 function initHeroReveal() {
   const els = document.querySelectorAll('.hero-content [data-reveal]');
-  /* 4.4s base delay — curtain takes longer to open now (doubled timing) */
-  const BASE_DELAY_MS = 4400;
+  /* 200ms base delay — just enough for the page to settle before animating */
+  const BASE_DELAY_MS = 200;
   /* 180ms between each element — snappy but readable */
   const STAGGER_MS = 180;
 
