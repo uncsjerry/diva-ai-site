@@ -14,12 +14,183 @@
 
   <!-- Curtain Reveal -->
   <div class="curtain" id="curtain">
-    <div class="curtain-left"></div>
-    <div class="curtain-right"></div>
+    <!-- WHY: SVG curtain panels create realistic draped fabric with curves,
+         depth shadows, and proper lighting — CSS gradients can't do organic folds -->
+    <div class="curtain-left">
+      <svg class="curtain-svg" viewBox="0 0 600 1200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Base velvet fill -->
+          <linearGradient id="velvetL" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3a0000"/>
+            <stop offset="15%" stop-color="#7a1018"/>
+            <stop offset="50%" stop-color="#5c0a0e"/>
+            <stop offset="85%" stop-color="#7a1018"/>
+            <stop offset="100%" stop-color="#2a0000"/>
+          </linearGradient>
+          <!-- Fold highlight — soft light catching the raised parts of draped fabric -->
+          <linearGradient id="foldHighL1" x1="0.3" y1="0" x2="0.7" y2="0">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="40%" stop-color="rgba(255,180,160,0.12)"/>
+            <stop offset="50%" stop-color="rgba(255,200,180,0.18)"/>
+            <stop offset="60%" stop-color="rgba(255,180,160,0.12)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="foldHighL2" x1="0.55" y1="0" x2="0.85" y2="0">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="40%" stop-color="rgba(255,160,140,0.09)"/>
+            <stop offset="50%" stop-color="rgba(255,180,160,0.14)"/>
+            <stop offset="60%" stop-color="rgba(255,160,140,0.09)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <!-- Deep shadow in the fold valleys -->
+          <linearGradient id="foldShadL1" x1="0.1" y1="0" x2="0.35" y2="0">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="40%" stop-color="rgba(0,0,0,0.25)"/>
+            <stop offset="60%" stop-color="rgba(0,0,0,0.25)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="foldShadL2" x1="0.7" y1="0" x2="0.95" y2="0">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="40%" stop-color="rgba(0,0,0,0.2)"/>
+            <stop offset="60%" stop-color="rgba(0,0,0,0.2)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <!-- Gold fringe gradient -->
+          <linearGradient id="goldFringe" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d4a843"/>
+            <stop offset="50%" stop-color="#f0d070"/>
+            <stop offset="100%" stop-color="#b8922e"/>
+          </linearGradient>
+          <!-- Top valance shadow — the gathered fabric at the rod -->
+          <radialGradient id="gatherShadow" cx="0.5" cy="0" r="0.6">
+            <stop offset="0%" stop-color="rgba(0,0,0,0.4)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+        </defs>
+        <!-- Base fabric -->
+        <rect width="600" height="1200" fill="url(#velvetL)"/>
+        <!-- Fold highlights — organic vertical bands of light -->
+        <rect width="600" height="1200" fill="url(#foldHighL1)"/>
+        <rect width="600" height="1200" fill="url(#foldHighL2)"/>
+        <!-- Fold shadows — darker valleys between folds -->
+        <rect width="600" height="1200" fill="url(#foldShadL1)"/>
+        <rect width="600" height="1200" fill="url(#foldShadL2)"/>
+        <!-- Gathered top — swag curves where fabric drapes from rod -->
+        <path d="M0,0 Q100,50 200,20 Q350,60 500,15 Q560,40 600,0 L600,70 Q500,40 350,80 Q200,45 100,75 Q50,55 0,65 Z"
+              fill="rgba(0,0,0,0.35)"/>
+        <path d="M0,0 Q150,40 300,15 Q450,45 600,0 L600,30 Q450,55 300,25 Q150,50 0,15 Z"
+              fill="rgba(60,0,0,0.6)"/>
+        <!-- Gold trim along inner edge -->
+        <rect x="596" y="60" width="4" height="1140" fill="url(#goldFringe)" opacity="0.7"/>
+        <!-- Gold tassel dots along inner edge -->
+        <g fill="#d4a843" opacity="0.5">
+          <circle cx="598" cy="1140" r="5"/>
+          <circle cx="598" cy="1152" r="4"/>
+          <circle cx="598" cy="1162" r="3"/>
+          <circle cx="595" cy="1170" r="2.5"/>
+          <circle cx="601" cy="1170" r="2.5"/>
+        </g>
+        <!-- Ambient stage light hitting the right side of left panel -->
+        <rect width="600" height="1200" fill="url(#gatherShadow)" opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="curtain-right">
+      <svg class="curtain-svg" viewBox="0 0 600 1200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="velvetR" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3a0000"/>
+            <stop offset="15%" stop-color="#7a1018"/>
+            <stop offset="50%" stop-color="#5c0a0e"/>
+            <stop offset="85%" stop-color="#7a1018"/>
+            <stop offset="100%" stop-color="#2a0000"/>
+          </linearGradient>
+          <linearGradient id="foldHighR1" x1="0.2" y1="0" x2="0.5" y2="0">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="40%" stop-color="rgba(255,180,160,0.12)"/>
+            <stop offset="50%" stop-color="rgba(255,200,180,0.18)"/>
+            <stop offset="60%" stop-color="rgba(255,180,160,0.12)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="foldHighR2" x1="0.6" y1="0" x2="0.9" y2="0">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="40%" stop-color="rgba(255,160,140,0.09)"/>
+            <stop offset="50%" stop-color="rgba(255,180,160,0.14)"/>
+            <stop offset="60%" stop-color="rgba(255,160,140,0.09)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="foldShadR1" x1="0.05" y1="0" x2="0.3" y2="0">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="40%" stop-color="rgba(0,0,0,0.2)"/>
+            <stop offset="60%" stop-color="rgba(0,0,0,0.2)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="foldShadR2" x1="0.4" y1="0" x2="0.65" y2="0">
+            <stop offset="0%" stop-color="transparent"/>
+            <stop offset="40%" stop-color="rgba(0,0,0,0.25)"/>
+            <stop offset="60%" stop-color="rgba(0,0,0,0.25)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+          <linearGradient id="goldFringeR" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d4a843"/>
+            <stop offset="50%" stop-color="#f0d070"/>
+            <stop offset="100%" stop-color="#b8922e"/>
+          </linearGradient>
+          <radialGradient id="gatherShadowR" cx="0.5" cy="0" r="0.6">
+            <stop offset="0%" stop-color="rgba(0,0,0,0.4)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+        </defs>
+        <rect width="600" height="1200" fill="url(#velvetR)"/>
+        <rect width="600" height="1200" fill="url(#foldHighR1)"/>
+        <rect width="600" height="1200" fill="url(#foldHighR2)"/>
+        <rect width="600" height="1200" fill="url(#foldShadR1)"/>
+        <rect width="600" height="1200" fill="url(#foldShadR2)"/>
+        <!-- Gathered top — mirrored swag -->
+        <path d="M0,0 Q40,40 100,15 Q250,60 400,20 Q500,50 600,0 L600,65 Q550,55 500,75 Q350,45 200,80 Q100,40 0,70 Z"
+              fill="rgba(0,0,0,0.35)"/>
+        <path d="M0,0 Q150,45 300,15 Q450,40 600,0 L600,30 Q450,50 300,20 Q150,55 0,15 Z"
+              fill="rgba(60,0,0,0.6)"/>
+        <!-- Gold trim along inner edge -->
+        <rect x="0" y="60" width="4" height="1140" fill="url(#goldFringeR)" opacity="0.7"/>
+        <!-- Gold tassel dots -->
+        <g fill="#d4a843" opacity="0.5">
+          <circle cx="2" cy="1140" r="5"/>
+          <circle cx="2" cy="1152" r="4"/>
+          <circle cx="2" cy="1162" r="3"/>
+          <circle cx="5" cy="1170" r="2.5"/>
+          <circle cx="-1" cy="1170" r="2.5"/>
+        </g>
+        <rect width="600" height="1200" fill="url(#gatherShadowR)" opacity="0.3"/>
+      </svg>
+    </div>
+    <!-- WHY: Valance sits above both panels — the decorative header piece across the top of the stage -->
+    <div class="curtain-valance" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="valanceFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a0000"/>
+            <stop offset="60%" stop-color="#6b0f0f"/>
+            <stop offset="100%" stop-color="#4a0808"/>
+          </linearGradient>
+          <linearGradient id="valanceGold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d4a843"/>
+            <stop offset="100%" stop-color="#b8922e"/>
+          </linearGradient>
+        </defs>
+        <!-- Scalloped valance shape — three draped swags -->
+        <path d="M0,0 L1200,0 L1200,55 Q1000,110 800,55 Q600,110 400,55 Q200,110 0,55 Z" fill="url(#valanceFill)"/>
+        <!-- Gold trim along the scalloped bottom edge -->
+        <path d="M0,55 Q200,110 400,55 Q600,110 800,55 Q1000,110 1200,55" fill="none" stroke="url(#valanceGold)" stroke-width="3" opacity="0.6"/>
+        <!-- Shadow under valance -->
+        <path d="M0,55 Q200,110 400,55 Q600,110 800,55 Q1000,110 1200,55 L1200,120 L0,120 Z" fill="rgba(0,0,0,0.3)"/>
+      </svg>
+    </div>
     <div class="curtain-text">
       <p class="curtain-kicker">Ladies and gentlemen&hellip;</p>
       <p class="curtain-headline">The moment you've been waiting for.</p>
     </div>
+    <!-- WHY: Spotlight effect — warm circular glow at center like a real stage spot -->
+    <div class="curtain-spotlight" aria-hidden="true"></div>
   </div>
 
   <!-- ==================== HERO ==================== -->

@@ -114,79 +114,89 @@ img, svg { display: block; }
   z-index: 9999;
   display: flex; align-items: center; justify-content: center;
   pointer-events: none;
-  /* WHY: Subtle warm spotlight glow behind the curtain text */
-  background: radial-gradient(ellipse at center, rgba(120,20,20,0.3) 0%, transparent 70%);
+  background: #0a0000;
+}
+
+/* WHY: Spotlight glow — warm circular stage light hitting the center of the curtain */
+.curtain-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 50% 60% at 50% 45%,
+    rgba(255,180,120,0.12) 0%,
+    rgba(180,80,40,0.06) 40%,
+    transparent 70%
+  );
+  z-index: 2;
+  pointer-events: none;
 }
 
 .curtain-left, .curtain-right {
   position: absolute; top: 0;
   width: 50%; height: 100%;
-  /* WHY: Rich red velvet look — dark red base with vertical folds via repeating gradients */
-  background:
-    /* Velvet fold highlights — vertical light/dark stripes mimicking draped fabric */
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.03) 0px,
-      rgba(255,255,255,0.06) 2px,
-      transparent 4px,
-      transparent 30px,
-      rgba(0,0,0,0.12) 32px,
-      transparent 34px,
-      transparent 60px
-    ),
-    /* Deep velvet base gradient */
-    linear-gradient(180deg, #5a0a0a 0%, #8b1a1a 15%, #6b0f0f 50%, #8b1a1a 85%, #3d0606 100%);
-  /* WHY: 2.4s (doubled from 1.2s) for dramatic slow curtain pull */
+  /* WHY: 2.4s for dramatic slow curtain pull — doubled from default */
   transition: transform 2.4s var(--ease-smooth);
+  overflow: hidden;
 }
 
-/* WHY: Left curtain gets a slight rightward light edge — where the two panels meet */
-.curtain-left  {
-  left: 0;
-  border-right: 1px solid rgba(255,200,150,0.08);
-}
-.curtain-right {
-  right: 0;
-  border-left: 1px solid rgba(255,200,150,0.08);
+.curtain-svg {
+  width: 100%; height: 100%;
+  display: block;
 }
 
-/* WHY: Gold fringe trim along the inner edges of the curtain */
+.curtain-left  { left: 0; }
+.curtain-right { right: 0; }
+
+/* WHY: Soft shadow at the center seam where the two panels meet */
 .curtain-left::after, .curtain-right::after {
   content: '';
   position: absolute;
   top: 0;
-  width: 6px;
+  width: 30px;
   height: 100%;
-  /* WHY: Repeating gold dots simulate the tasseled fringe on theater curtains */
-  background: repeating-linear-gradient(
-    180deg,
-    #c9a84c 0px,
-    #e6c561 3px,
-    transparent 3px,
-    transparent 8px
-  );
+  z-index: 1;
 }
-.curtain-left::after  { right: 0; }
-.curtain-right::after { left: 0; }
+.curtain-left::after {
+  right: 0;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.4));
+}
+.curtain-right::after {
+  left: 0;
+  background: linear-gradient(270deg, transparent, rgba(0,0,0,0.4));
+}
 
-/* WHY: Scalloped valance across the top — the draped fabric header above the curtain */
-.curtain-left::before, .curtain-right::before {
-  content: '';
+/* WHY: Valance sits across the full width above both panels — stays in place as curtains open */
+.curtain-valance {
   position: absolute;
   top: 0; left: 0;
-  width: 100%; height: 60px;
-  background: linear-gradient(180deg, #3d0606 0%, #6b0f0f 60%, transparent 100%);
-  z-index: 1;
+  width: 100%; height: 120px;
+  z-index: 5;
+  pointer-events: none;
+}
+.curtain-valance svg {
+  width: 100%; height: 100%;
+  display: block;
 }
 
 .curtain.open .curtain-left  { transform: translateX(-100%); }
 .curtain.open .curtain-right { transform: translateX(100%); }
+/* WHY: Valance fades as curtains finish — it's part of the reveal, not permanent */
+.curtain.open .curtain-valance {
+  opacity: 0;
+  transition: opacity 1s ease 1.6s;
+}
+.curtain.open .curtain-spotlight {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.5s;
+}
 .curtain.done { display: none; }
 
 .curtain-text {
-  position: relative; z-index: 1;
+  position: relative; z-index: 3;
   text-align: center;
   transition: opacity 0.6s ease;
+  /* WHY: Subtle text shadow so letters pop against the red fabric */
+  text-shadow: 0 2px 20px rgba(0,0,0,0.6);
 }
 
 .curtain.open .curtain-text { opacity: 0; }
@@ -197,8 +207,8 @@ img, svg { display: block; }
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  /* WHY: Warm gold tone instead of gray — fits the theater ambiance */
-  color: rgba(255,220,150,0.6);
+  /* WHY: Warm gold tone — lit by the stage spotlight */
+  color: rgba(255,220,150,0.7);
   opacity: 0;
   animation: fadeUp 0.6s ease 0.4s forwards;
 }
@@ -210,7 +220,7 @@ img, svg { display: block; }
   color: var(--yellow);
   margin-top: 0.6rem;
   opacity: 0;
-  /* WHY: 1.4s delay (doubled from 0.7s) — text lingers before curtain pulls */
+  /* WHY: 1.4s delay — text lingers for dramatic buildup before curtain pulls */
   animation: fadeUp 0.6s ease 1.4s forwards;
 }
 
