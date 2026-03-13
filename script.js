@@ -22,10 +22,10 @@ function initCurtain() {
   const curtain = document.getElementById('curtain');
   if (!curtain) return;
 
-  /* 1.8s lets both text lines animate in, then opens */
-  setTimeout(() => curtain.classList.add('open'), 1800);
-  /* Remove from DOM after transition completes */
-  setTimeout(() => curtain.classList.add('done'), 3200);
+  /* 3.6s lets both text lines linger for dramatic effect, then curtain pulls open */
+  setTimeout(() => curtain.classList.add('open'), 3600);
+  /* Remove from DOM after the slow 2.4s curtain transition completes */
+  setTimeout(() => curtain.classList.add('done'), 6400);
 }
 
 /* --------------------------------------------------------------------------
@@ -36,8 +36,8 @@ function initCurtain() {
 
 function initHeroReveal() {
   const els = document.querySelectorAll('.hero-content [data-reveal]');
-  /* 2.2s base delay — curtain needs to finish opening first */
-  const BASE_DELAY_MS = 2200;
+  /* 4.4s base delay — curtain takes longer to open now (doubled timing) */
+  const BASE_DELAY_MS = 4400;
   /* 180ms between each element — snappy but readable */
   const STAGGER_MS = 180;
 
