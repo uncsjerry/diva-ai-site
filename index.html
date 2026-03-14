@@ -33,8 +33,9 @@
     }
 
     .teaser-logo img {
-      height: 80px;
-      width: auto;
+      /* WHY: Logo should own the page — this is a diva, not a footnote */
+      width: clamp(280px, 50vw, 550px);
+      height: auto;
     }
 
     /* WHY: Text fallback in case logo image hasn't been added yet */
@@ -53,7 +54,8 @@
     }
 
     .teaser-quip {
-      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      /* WHY: Small and understated — the quip whispers, the logo shouts */
+      font-size: clamp(0.85rem, 1.5vw, 1.05rem);
       font-style: italic;
       color: #fee759;
       letter-spacing: 0.02em;
