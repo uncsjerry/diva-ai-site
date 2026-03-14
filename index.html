@@ -3,313 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>diva ai — She's About to Change Retail Forever</title>
-  <meta name="description" content="DIVA AI is the revolutionary retail intelligence platform that finds product, prices it, scores it, and matches it to the right buyer. Coming soon.">
+  <title>diva ai — She's Almost Ready</title>
+  <meta name="description" content="DIVA AI is the revolutionary retail intelligence platform. Coming soon.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111118;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    .teaser {
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1.2s ease 0.3s forwards;
+    }
+
+    .teaser-logo {
+      margin-bottom: 2.5rem;
+    }
+
+    .teaser-logo img {
+      height: 80px;
+      width: auto;
+    }
+
+    /* WHY: Text fallback in case logo image hasn't been added yet */
+    .teaser-logo-text {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: #fff;
+    }
+    .teaser-logo-text .ai {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.45em;
+      vertical-align: super;
+      margin-left: 0.1em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .teaser-quip {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-style: italic;
+      color: #fee759;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      animation: fadeIn 1s ease 1.2s forwards;
+    }
+
+    /* WHY: Subtle animated glow behind the logo — just enough to feel alive */
+    .glow {
+      position: fixed;
+      top: 50%; left: 50%;
+      width: 500px; height: 500px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(
+        circle,
+        rgba(128,0,215,0.12) 0%,
+        rgba(24,78,221,0.06) 40%,
+        transparent 70%
+      );
+      z-index: -1;
+      animation: pulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- ==================== HERO ==================== -->
-  <section class="hero" id="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-grid-bg" aria-hidden="true"></div>
-    <div class="hero-content">
-      <p class="hero-intro" data-reveal>introducing</p>
-      <!-- WHY: Uses the actual brand logo from Canva when available,
-           falls back to styled text if image fails to load -->
-      <h1 class="hero-logo" data-reveal>
-        <img src="assets/diva-white-lockup.png"
-             alt="diva ai"
-             class="hero-logo-img"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-        <span class="hero-logo-fallback" style="display:none">diva<span class="hero-ai">ai</span><sup class="tm">&trade;</sup></span>
-      </h1>
-      <p class="hero-tagline" data-reveal>She doesn't follow trends.<br><em>She sets them.</em></p>
-      <p class="hero-sub" data-reveal>The AI-powered retail intelligence platform<br>about to make her grand entrance.</p>
-      <a href="#signup" class="btn-primary" data-reveal>Get On the Guest List</a>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="teaser">
+    <div class="teaser-logo">
+      <img src="assets/diva-white-lockup.png" alt="diva ai"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="teaser-logo-text" style="display:none">diva<span class="ai">ai</span></div>
     </div>
-    <div class="scroll-cue" aria-hidden="true">
-      <span class="scroll-line"></span>
-    </div>
-  </section>
-
-  <!-- ==================== MARQUEE ==================== -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>She finds it.</span>
-      <span class="sep">&bull;</span>
-      <span>She prices it.</span>
-      <span class="sep">&bull;</span>
-      <span>She scores it.</span>
-      <span class="sep">&bull;</span>
-      <span>She serves it.</span>
-      <span class="sep">&bull;</span>
-      <span class="marquee-sass">"I'm not bossy, I'm the BOSS."</span>
-      <span class="sep">&bull;</span>
-      <span>24 years of data. One legendary AI.</span>
-      <span class="sep">&bull;</span>
-      <span class="marquee-sass">"Why be basic when you can be a DIVA?"</span>
-      <span class="sep">&bull;</span>
-      <span>People build relationships. Machines learn patterns. DIVA connects both.</span>
-      <span class="sep">&bull;</span>
-      <span class="marquee-sass">"I don't do subtle, darling."</span>
-      <span class="sep">&bull;</span>
-      <span>She finds it.</span>
-      <span class="sep">&bull;</span>
-      <span>She prices it.</span>
-      <span class="sep">&bull;</span>
-      <span>She scores it.</span>
-      <span class="sep">&bull;</span>
-      <span>She serves it.</span>
-      <span class="sep">&bull;</span>
-      <span class="marquee-sass">"I'm not bossy, I'm the BOSS."</span>
-      <span class="sep">&bull;</span>
-      <span>24 years of data. One legendary AI.</span>
-      <span class="sep">&bull;</span>
-      <span class="marquee-sass">"Why be basic when you can be a DIVA?"</span>
-      <span class="sep">&bull;</span>
-      <span>People build relationships. Machines learn patterns. DIVA connects both.</span>
-      <span class="sep">&bull;</span>
-      <span class="marquee-sass">"I don't do subtle, darling."</span>
-      <span class="sep">&bull;</span>
-    </div>
+    <p class="teaser-quip">Currently in makeup. A diva never rushes her entrance.</p>
   </div>
-
-  <!-- ==================== ORIGIN STORY ==================== -->
-  <section class="origin" id="origin">
-    <div class="container">
-      <span class="section-kicker" data-scroll-reveal>The Origin Story</span>
-      <h2 class="section-heading" data-scroll-reveal>Every icon has a beginning.</h2>
-      <div class="origin-grid">
-
-        <article class="origin-card" data-scroll-reveal>
-          <div class="card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
-          </div>
-          <span class="card-label">Act I</span>
-          <h3>She Studied the Game</h3>
-          <p>Built on 24 years of closeout distribution data &mdash; every deal, every buyer, every pattern. She didn't just read the room. She <em>memorized</em> it.</p>
-          <span class="card-flair">"Know your audience before you take the stage."</span>
-        </article>
-
-        <article class="origin-card" data-scroll-reveal>
-          <div class="card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
-          </div>
-          <span class="card-label">Act II</span>
-          <h3>She Fired the Understudies</h3>
-          <p>Off-the-shelf AI couldn't keep up. White-label tools couldn't handle her range. So she was built from scratch &mdash; custom, proprietary, and <em>unapologetic</em>.</p>
-          <span class="card-flair">"If you want something done right, build it yourself."</span>
-        </article>
-
-        <article class="origin-card" data-scroll-reveal>
-          <div class="card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <span class="card-label">Act III</span>
-          <h3>She Took the Stage</h3>
-          <p>In her first 30 days she uncovered <strong>$1&nbsp;billion+</strong> in product and delivered <strong>7,500%</strong> more opportunities. That's not a debut &mdash; that's a <em>coronation</em>.</p>
-          <span class="card-flair">"I don't do encores. The first performance is always enough."</span>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== WHAT SHE DOES ==================== -->
-  <section class="capabilities" id="capabilities">
-    <div class="container">
-      <span class="section-kicker light" data-scroll-reveal>Capabilities</span>
-      <h2 class="section-heading light" data-scroll-reveal>What does a diva do?</h2>
-      <p class="section-sub light" data-scroll-reveal>She doesn't just show up. She <em>shows out</em>.</p>
-
-      <div class="cap-grid">
-        <div class="cap-card" data-scroll-reveal>
-          <span class="cap-num">01</span>
-          <h3>Finds the Product</h3>
-          <p>She scans, discovers, and surfaces new inventory opportunities before anyone else even knows they exist. Your inbox becomes her runway.</p>
-          <span class="cap-quip">"I saw it first."</span>
-        </div>
-        <div class="cap-card" data-scroll-reveal>
-          <span class="cap-num">02</span>
-          <h3>Prices It Right</h3>
-          <p>Market comps, margin analysis, retail benchmarks &mdash; she calculates the perfect price while you're still opening the spreadsheet.</p>
-          <span class="cap-quip">"Math is my love language."</span>
-        </div>
-        <div class="cap-card" data-scroll-reveal>
-          <span class="cap-num">03</span>
-          <h3>Scores the Deal</h3>
-          <p>Every opportunity gets a DIVA Score &mdash; a proprietary rating that separates the showstoppers from the background dancers.</p>
-          <span class="cap-quip">"Not every deal deserves a standing ovation."</span>
-        </div>
-        <div class="cap-card" data-scroll-reveal>
-          <span class="cap-num">04</span>
-          <h3>Matches the Buyer</h3>
-          <p>She knows who wants what, when they want it, and exactly how to present it. 2.1&nbsp;million data points don't lie, honey.</p>
-          <span class="cap-quip">"I'm basically Cupid with a database."</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== QUOTES ==================== -->
-  <section class="quotes" id="quotes">
-    <div class="container">
-      <div class="quote-stage" id="quoteCarousel">
-        <blockquote class="quote-slide active">
-          <p>&ldquo;I was told to wait my turn. So I skipped the line.&rdquo;</p>
-          <cite>diva ai &mdash; on disrupting retail</cite>
-        </blockquote>
-        <blockquote class="quote-slide">
-          <p>&ldquo;Human judgment built this industry. I'm here to remove the ceiling.&rdquo;</p>
-          <cite>diva ai &mdash; on scaling beyond limits</cite>
-        </blockquote>
-        <blockquote class="quote-slide">
-          <p>&ldquo;Darling, I don't predict trends. I AM the trend.&rdquo;</p>
-          <cite>diva ai &mdash; on the future of distribution</cite>
-        </blockquote>
-        <blockquote class="quote-slide">
-          <p>&ldquo;Where will I go from here? Wherever I want.&rdquo;</p>
-          <cite>diva ai &mdash; on what's next</cite>
-        </blockquote>
-        <blockquote class="quote-slide">
-          <p>&ldquo;They tried to put me in a box. So I automated the box and sold it for a profit.&rdquo;</p>
-          <cite>diva ai &mdash; on off-the-shelf solutions</cite>
-        </blockquote>
-        <blockquote class="quote-slide">
-          <p>&ldquo;I don't have competitors. I have an audience.&rdquo;</p>
-          <cite>diva ai &mdash; on market position</cite>
-        </blockquote>
-      </div>
-      <div class="quote-dots" id="quoteDots"></div>
-    </div>
-  </section>
-
-  <!-- ==================== STATS ==================== -->
-  <section class="stats" id="stats">
-    <div class="container">
-      <span class="section-kicker" data-scroll-reveal>The Reviews Are In</span>
-      <h2 class="section-heading" data-scroll-reveal>Her debut &mdash; by the numbers.</h2>
-
-      <div class="stats-row">
-        <div class="stat" data-scroll-reveal>
-          <div class="stat-value">
-            <span class="stat-num" data-target="7500">0</span><span class="stat-suffix">%</span>
-          </div>
-          <p class="stat-label">more product discovered</p>
-          <p class="stat-detail">From 2,240 SKUs to 86,000+ in month one</p>
-        </div>
-
-        <div class="stat-divider" aria-hidden="true"></div>
-
-        <div class="stat" data-scroll-reveal>
-          <div class="stat-value">
-            <span class="stat-pre">$</span><span class="stat-num" data-target="1">0</span><span class="stat-suffix">B+</span>
-          </div>
-          <p class="stat-label">in product value uncovered</p>
-          <p class="stat-detail">In her very first month on the job</p>
-        </div>
-
-        <div class="stat-divider" aria-hidden="true"></div>
-
-        <div class="stat" data-scroll-reveal>
-          <div class="stat-value">
-            <span class="stat-num" data-target="30">0</span><span class="stat-suffix"> days</span>
-          </div>
-          <p class="stat-label">to change everything</p>
-          <p class="stat-detail">She fundamentally altered the trajectory</p>
-        </div>
-      </div>
-
-      <p class="stats-coda" data-scroll-reveal>People build relationships. Machines learn patterns.<br><strong>DIVA connects both.</strong></p>
-    </div>
-  </section>
-
-  <!-- ==================== ROADMAP ==================== -->
-  <section class="roadmap" id="roadmap">
-    <div class="container">
-      <span class="section-kicker light" data-scroll-reveal>What's Next</span>
-      <h2 class="section-heading light" data-scroll-reveal>Where will she go from here?</h2>
-      <p class="roadmap-answer" data-scroll-reveal>Wherever she wants.</p>
-
-      <div class="roadmap-track">
-        <div class="roadmap-line" aria-hidden="true"></div>
-        <div class="roadmap-node" data-scroll-reveal>
-          <div class="node-dot"></div>
-          <div class="node-content">
-            <span class="node-phase">Phase I</span>
-            <h3>Sourcing Optimization</h3>
-            <p>AI-powered sourcing tools deployed directly to retail customers.</p>
-          </div>
-        </div>
-        <div class="roadmap-node" data-scroll-reveal>
-          <div class="node-dot"></div>
-          <div class="node-content">
-            <span class="node-phase">Phase II</span>
-            <h3>Deployable AI Tools</h3>
-            <p>Customer-facing intelligence platforms built on DIVA's core engine.</p>
-          </div>
-        </div>
-        <div class="roadmap-node" data-scroll-reveal>
-          <div class="node-dot"></div>
-          <div class="node-content">
-            <span class="node-phase">Phase III</span>
-            <h3>Strategic Intelligence</h3>
-            <p>From broker to strategic sourcing intelligence partner.</p>
-          </div>
-        </div>
-        <div class="roadmap-node" data-scroll-reveal>
-          <div class="node-dot"></div>
-          <div class="node-content">
-            <span class="node-phase">Phase IV</span>
-            <h3>The DIVA Marketplace</h3>
-            <p>The Amazon of wholesale distribution. AI-powered. Diva-approved.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SIGNUP ==================== -->
-  <section class="signup" id="signup">
-    <div class="container">
-      <div class="signup-inner">
-        <span class="section-kicker" data-scroll-reveal>Coming Soon</span>
-        <h2 class="section-heading" data-scroll-reveal>The curtain rises soon.</h2>
-        <p class="signup-sub" data-scroll-reveal>Get backstage access. Be the first to know when DIVA&nbsp;AI opens her doors to the world.</p>
-        <form class="signup-form" id="signupForm" data-scroll-reveal>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
-          <button type="submit" class="btn-submit">Join the A-List</button>
-        </form>
-        <p class="signup-note" data-scroll-reveal>No spam. Just front-row seats to the future of retail.</p>
-        <div class="signup-success" id="signupSuccess" hidden>
-          <p class="success-headline">Welcome to the A-List, darling.</p>
-          <p class="success-sub">We'll be in touch. Save your best outfit.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-brand">diva<span class="footer-ai">ai</span><sup class="tm">&trade;</sup></div>
-      <p class="footer-tagline">Powered by UNCS &mdash; Big Deals, Bigger Bargains. Every Day. Since 2002.</p>
-      <div class="footer-rule"></div>
-      <p class="footer-legal">&copy; 2026 United National Consumer Suppliers, Inc. All rights reserved.<br>DIVA AI&trade; is a proprietary platform of UNCS.</p>
-    </div>
-  </footer>
-
-  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
-  <script src="script.js"></script>
 </body>
 </html>
